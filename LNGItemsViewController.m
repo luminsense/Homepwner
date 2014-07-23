@@ -75,7 +75,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LNGDetailViewController *detailViewController = [[LNGDetailViewController alloc] init];
+    LNGDetailViewController *detailViewController = [[LNGDetailViewController alloc] initForNewItem:NO];
     
     NSArray *items = [[LNGItemStore sharedStore] allItems];
     LNGItem *selectedItem = items[indexPath.row];
@@ -89,13 +89,26 @@
 - (IBAction)addNewItem:(id)sender
 {
     if (!self.editing) {
-        [[LNGItemStore sharedStore] createItem];
+        LNGItem *newItem = [[LNGItemStore sharedStore] createItem];
         
+        /*
         //NSInteger lastRow = [[[LNGItemStore sharedStore] allItems] indexOfObject:newItem];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         
         // Insert this new row into the table
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+         */
+        
+        LNGDetailViewController *detailViewController = [[LNGDetailViewController alloc] initForNewItem:YES];
+        detailViewController.item = newItem;
+        detailViewController.dismissBlock = ^{
+            [self.tableView reloadData];
+        };
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+        navController.modalPresentationStyle = UIModalPresentationFormSheet;
+        navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:navController animated:YES completion:NULL];
     }
 }
 

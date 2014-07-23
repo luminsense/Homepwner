@@ -21,9 +21,11 @@
 {
     static LNGImageStore *sharedStore;
     
-    if (!sharedStore) {
+    // Make thread safe
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         sharedStore = [[self alloc] initPrivate];
-    }
+    });
     return sharedStore;
 }
 

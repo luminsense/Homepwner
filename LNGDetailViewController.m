@@ -8,6 +8,7 @@
 
 #import "LNGDetailViewController.h"
 #import "LNGItem.h"
+#import "LNGItemStore.h"
 #import "LNGImageStore.h"
 #import "LNGCameraOverlayView.h"
 
@@ -23,6 +24,28 @@
 @end
 
 @implementation LNGDetailViewController
+
+- (instancetype)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:nil bundle:nil];
+    
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            self.navigationItem.rightBarButtonItem = doneItem;
+            
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            self.navigationItem.leftBarButtonItem = cancelItem;
+        }
+    }
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    [NSException raise:@"Wrong initializer" format:@"User initForNewItem"];
+    return nil;
+}
 
 - (void)viewDidLoad
 {
@@ -103,6 +126,8 @@
     self.navigationItem.title = _item.itemName;
 }
 
+// FORM EDITING
+
 - (IBAction)backgroundTapped:(id)sender
 {
     [self.view endEditing:YES];
@@ -114,6 +139,8 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+// TAKING PICTURE
 
 - (IBAction)takePicture:(id)sender
 {
@@ -159,7 +186,6 @@
     [[LNGImageStore sharedStore] deleteImageForKey:self.item.itemKey];
 }
 
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // Get picked image from info dictionary
@@ -179,6 +205,8 @@
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
+
+// ROTATION HANDLING
 
 - (void)prepareViewsForOrientation:(UIInterfaceOrientation)orientation
 {
@@ -202,9 +230,25 @@
     [self prepareViewsForOrientation:toInterfaceOrientation];
 }
 
+// POPOVER CONTROLLER
+
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.imagePickerPopover = nil;
 }
+
+// MODAL VIEW BUTTONS
+
+- (void)save:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
+}
+
+- (void)cancel:(id)sender
+{
+    [[LNGItemStore sharedStore] removeItem:self.item];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
+}
+
 
 @end

@@ -13,5 +13,8 @@
 @interface LNGDetailViewController : UIViewController
 
 @property (nonatomic, strong) LNGItem *item;
+@property (nonatomic, copy) void (^dismissBlock)(void);
+
+- (instancetype)initForNewItem:(BOOL)isNew;
 
 @end
