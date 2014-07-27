@@ -20,5 +20,6 @@
 - (void)removeItem:(LNGItem *)item;
 - (void)removeItemAtIndex:(NSUInteger)index;
 - (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+- (BOOL)saveChanges;
 
 @end

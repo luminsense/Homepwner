@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LNGItemsViewController.m"
-            timestampString = "427830396.391318"
+            timestampString = "427832487.691961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-tableView:moveRowAtIndexPath:toIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

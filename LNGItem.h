@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LNGItem : NSObject
+@interface LNGItem : NSObject <NSCoding>
 {
     NSString *_itemName;
     NSString *_serialNumber;
