@@ -191,11 +191,13 @@
     // Get picked image from info dictionary
     UIImage *image = info[UIImagePickerControllerEditedImage];
     
+    // Create a thunmnail
+    [self.item setThumbnailFromImage:image];
+    
     // Store the image in the LNGImageStore for this key
     [[LNGImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     
     self.imageView.image = image;
-    // [self dismissViewControllerAnimated:YES completion:NULL];
     
     // Dismiss the popover controller if have
     if (self.imagePickerPopover) {

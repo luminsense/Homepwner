@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BF978050-344E-492A-8A40-C50D16B0D6E9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Homepwner</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AE57D8E6-C05E-40BD-BE3D-5F3B0689DCE1</key>
+		<string>https://github.com/luminsense/Homepwner.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Homepwner.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AE57D8E6-C05E-40BD-BE3D-5F3B0689DCE1</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/luminsense/Homepwner.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AE57D8E6-C05E-40BD-BE3D-5F3B0689DCE1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AE57D8E6-C05E-40BD-BE3D-5F3B0689DCE1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Homepwner</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -58,16 +58,16 @@
     // Did the superclass's designated initializer succeed?
     if (self) {
         // Give the instance variables initial values
-        _itemName = name;
-        _serialNumber = sNumber;
-        _valueInDollars = value;
+        self.itemName = name;
+        self.serialNumber = sNumber;
+        self.valueInDollars = value;
         // Set _dateCreated to the current date and time
-        _dateCreated = [[NSDate alloc] init];
+        self.dateCreated = [[NSDate alloc] init];
         
         // Create an USUUID object and get its string representation
         NSUUID *uuid = [[NSUUID alloc] init];
         NSString *key = [uuid UUIDString];
-        _itemKey = key;
+        self.itemKey = key;
     }
 
     // Return the address of the newly initialized object
@@ -84,36 +84,6 @@
 - (instancetype)init
 {
     return [self initWithItemName:@"Item"];
-}
-
-- (void)setItemName:(NSString *)str
-{
-    _itemName = str;
-}
-
-- (NSString *)itemName
-{
-    return _itemName;
-}
-
-- (void)setSerialNumber:(NSString *)str
-{
-    _serialNumber = str;
-}
-
-- (NSString *)serialNumber
-{
-    return _serialNumber;
-}
-
-- (void)setValueInDollars:(int)v
-{
-    _valueInDollars = v;
-}
-
-- (int)valueInDollars
-{
-    return _valueInDollars;
 }
 
 - (NSDate *)dateCreated
@@ -138,7 +108,7 @@
     [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
     [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
     [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
-    
+    [aCoder encodeObject:self.thumbnail forKey:@"thumbnail"];
     [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
 }
 
@@ -150,9 +120,47 @@
         _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
         _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
         _itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
+        _thumbnail = [aDecoder decodeObjectForKey:@"thumbnail"];
         _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
     }
     return self;
+}
+
+- (void)setThumbnailFromImage:(UIImage *)image
+{
+    CGSize originalImageSize = image.size;
+    
+    // The rect of the thumbnail
+    CGRect newRect = CGRectMake(0, 0, 40, 40);
+    
+    // Figure out a scaling ratio to make sure we maintain the same aspect ratio
+    float ratio = MAX(newRect.size.width / originalImageSize.width, newRect.size.height / originalImageSize.height);
+    
+    // CREATE a transparent bitmap context with a scaling factor equal to that of the screen
+    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0.0);
+    
+    // Create a path that is a rounded rect
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:newRect cornerRadius:5.0];
+    
+    // Make all subsequent drawing clip to this rounded rect
+    [path addClip];
+    
+    // Center the image in the thumbnail rect
+    CGRect projectRect;
+    projectRect.size.width = ratio * originalImageSize.width;
+    projectRect.size.height = ratio * originalImageSize.height;
+    projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2;
+    projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2;
+    
+    // Draw the image on it
+    [image drawInRect:projectRect];
+    
+    // Get the image from the image context; keep it as our thumbnail
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    self.thumbnail = smallImage;
+    
+    // CLEANUP image context resources
+    UIGraphicsEndImageContext();
 }
 
 @end

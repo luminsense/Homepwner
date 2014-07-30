@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LNGItem : NSObject <NSCoding>
-{
-    NSString *_itemName;
-    NSString *_serialNumber;
-    int _valueInDollars;
-    NSDate *_dateCreated;
-}
+
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, copy) NSString *serialNumber;
+@property (nonatomic) int valueInDollars;
+@property (nonatomic, copy) NSDate *dateCreated;
 @property (nonatomic, copy) NSString *itemKey;
+@property (nonatomic, strong) UIImage *thumbnail;
 
 + (instancetype)randomItem;
 
@@ -36,5 +37,7 @@
 - (int)valueInDollars;
 
 - (NSDate *)dateCreated;
+
+- (void)setThumbnailFromImage:(UIImage *)image;
 
 @end

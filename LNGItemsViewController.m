@@ -10,9 +10,12 @@
 #import "LNGDetailViewController.h"
 #import "LNGItem.h"
 #import "LNGItemStore.h"
+#import "LNGItemCell.h"
+#import "LNGImageStore.h"
+#import "LNGImageViewController.h"
 
-@interface LNGItemsViewController ()
-
+@interface LNGItemsViewController () <UIPopoverControllerDelegate>
+@property (strong, nonatomic) UIPopoverController *imagePopover;
 @end
 
 @implementation LNGItemsViewController
@@ -44,7 +47,13 @@
     [super viewDidLoad];
     
     // Register a class with identifier for table view
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    // [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    
+    // Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"LNGItemCell" bundle:nil];
+    
+    // Register this NIB
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"LNGItemCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,14 +70,64 @@
     return [[[LNGItemStore sharedStore] allItems] count];
 }
 
+// There will be a problem if this method is not implemented
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Create an instance of UITableViewCell, with default appearance
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    LNGItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LNGItemCell" forIndexPath:indexPath];
     NSArray *items = [[LNGItemStore sharedStore] allItems]; // copy
     LNGItem *item = items[indexPath.row];
-    cell.textLabel.text = [item description];
+    
+    // Configure the cell with LNGItem
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    cell.valueLabel.textColor = item.valueInDollars > 50.0 ? [UIColor greenColor] : [UIColor blackColor];
+    cell.thumbnailView.image = item.thumbnail;
+    
+    // Configure actionBlock for the viewing big image feature
+    __weak LNGItemCell *weakCell = cell;
+    cell.actionBlock = ^{
+        NSLog(@"Going to show image for %@", item);
+        
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            NSString *itemKey = item.itemKey;
+            
+            LNGItemCell *strongCell = weakCell;
+            
+            // If there is no image, don't need to display anything
+            UIImage *image = [[LNGImageStore sharedStore] imageForKey:itemKey];
+            if (!image) {
+                return;
+            }
+            
+            // Make a rect for the frame of the thumbnail relative to our table view
+            CGRect rect = [self.view convertRect:strongCell.thumbnailView.bounds fromView:strongCell.thumbnailView];
+            
+            // Create a new LNGImageViewController and set its image
+            LNGImageViewController *ivc = [[LNGImageViewController alloc] init];
+            ivc.image = image;
+            
+            // Present a 600x600 popover from the rect
+            self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+            self.imagePopover.delegate = self;
+            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            NSLog(@"Size: %f, %f", self.imagePopover.popoverContentSize.width, self.imagePopover.popoverContentSize.height);
+        }
+    };
+    
     return cell;
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePopover = nil;
 }
 
 // NAVIGATION

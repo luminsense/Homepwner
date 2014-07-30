@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201D92501987E06800AA29B2 /* LNGItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201D924F1987E06800AA29B2 /* LNGItemCell.m */; };
+		201D92551987E0DE00AA29B2 /* LNGItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201D92541987E0DE00AA29B2 /* LNGItemCell.xib */; };
 		20771919196D736C006E3BAA /* LNGCameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20771918196D736C006E3BAA /* LNGCameraOverlayView.m */; };
+		209DDCCF1989609700A1B69C /* LNGImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 209DDCCE1989609700A1B69C /* LNGImageViewController.m */; };
 		20C907C51969359400099EC5 /* LNGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C907C31969359400099EC5 /* LNGDetailViewController.m */; };
 		20C907C61969359400099EC5 /* LNGDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20C907C41969359400099EC5 /* LNGDetailViewController.xib */; };
 		20E84298196C4CFD00CAC317 /* LNGImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E84297196C4CFD00CAC317 /* LNGImageStore.m */; };
@@ -31,8 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		201D924E1987E06800AA29B2 /* LNGItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGItemCell.h; sourceTree = "<group>"; };
+		201D924F1987E06800AA29B2 /* LNGItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItemCell.m; sourceTree = "<group>"; };
+		201D92541987E0DE00AA29B2 /* LNGItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LNGItemCell.xib; sourceTree = "<group>"; };
 		20771917196D736C006E3BAA /* LNGCameraOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGCameraOverlayView.h; sourceTree = "<group>"; };
 		20771918196D736C006E3BAA /* LNGCameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGCameraOverlayView.m; sourceTree = "<group>"; };
+		209DDCCD1989609700A1B69C /* LNGImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGImageViewController.h; sourceTree = "<group>"; };
+		209DDCCE1989609700A1B69C /* LNGImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGImageViewController.m; sourceTree = "<group>"; };
 		20C907C21969359400099EC5 /* LNGDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGDetailViewController.h; sourceTree = "<group>"; };
 		20C907C31969359400099EC5 /* LNGDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGDetailViewController.m; sourceTree = "<group>"; };
 		20C907C41969359400099EC5 /* LNGDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LNGDetailViewController.xib; sourceTree = "<group>"; };
@@ -73,10 +81,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201D92521987E09900AA29B2 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				20FEF5411966FE3C00C9AA48 /* LNGItemStore.h */,
+				20FEF5421966FE3C00C9AA48 /* LNGItemStore.m */,
+				20E84296196C4CFD00CAC317 /* LNGImageStore.h */,
+				20E84297196C4CFD00CAC317 /* LNGImageStore.m */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		201D92531987E0A800AA29B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				201D924E1987E06800AA29B2 /* LNGItemCell.h */,
+				201D924F1987E06800AA29B2 /* LNGItemCell.m */,
+				201D92541987E0DE00AA29B2 /* LNGItemCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		20FEF5121966FA0D00C9AA48 = {
 			isa = PBXGroup;
 			children = (
 				20FEF5441966FE4800C9AA48 /* Model */,
+				201D92521987E09900AA29B2 /* Store */,
+				201D92531987E0A800AA29B2 /* View */,
 				20FEF5451966FE5800C9AA48 /* Controller */,
 				20FEF51D1966FA0D00C9AA48 /* Homepwner */,
 				20FEF52E1966FA0D00C9AA48 /* HomepwnerTests */,
@@ -135,10 +166,6 @@
 			children = (
 				20FEF53E1966FCDA00C9AA48 /* LNGItem.h */,
 				20FEF53F1966FCDA00C9AA48 /* LNGItem.m */,
-				20FEF5411966FE3C00C9AA48 /* LNGItemStore.h */,
-				20FEF5421966FE3C00C9AA48 /* LNGItemStore.m */,
-				20E84296196C4CFD00CAC317 /* LNGImageStore.h */,
-				20E84297196C4CFD00CAC317 /* LNGImageStore.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -148,6 +175,8 @@
 			children = (
 				20FEF53B1966FB4300C9AA48 /* LNGItemsViewController.h */,
 				20FEF53C1966FB4300C9AA48 /* LNGItemsViewController.m */,
+				209DDCCD1989609700A1B69C /* LNGImageViewController.h */,
+				209DDCCE1989609700A1B69C /* LNGImageViewController.m */,
 				20C907C21969359400099EC5 /* LNGDetailViewController.h */,
 				20C907C31969359400099EC5 /* LNGDetailViewController.m */,
 				20C907C41969359400099EC5 /* LNGDetailViewController.xib */,
@@ -236,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				201D92551987E0DE00AA29B2 /* LNGItemCell.xib in Resources */,
 				20FEF5261966FA0D00C9AA48 /* Images.xcassets in Resources */,
 				20C907C61969359400099EC5 /* LNGDetailViewController.xib in Resources */,
 			);
@@ -255,6 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209DDCCF1989609700A1B69C /* LNGImageViewController.m in Sources */,
+				201D92501987E06800AA29B2 /* LNGItemCell.m in Sources */,
 				20771919196D736C006E3BAA /* LNGCameraOverlayView.m in Sources */,
 				20E84298196C4CFD00CAC317 /* LNGImageStore.m in Sources */,
 				20FEF5241966FA0D00C9AA48 /* AppDelegate.m in Sources */,
@@ -367,10 +399,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Homepwner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -380,10 +412,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Homepwner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
