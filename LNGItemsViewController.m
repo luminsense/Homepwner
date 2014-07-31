@@ -33,8 +33,22 @@
         self.navigationItem.rightBarButtonItem = bbi;
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        
+        // Responding to user changes of text size
+        NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+        [defaultCenter addObserver:self
+                          selector:@selector(updateTableViewForDynamicTypesize)
+                              name:UIContentSizeCategoryDidChangeNotification
+                            object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    // Need to remove observer of defaultCenter
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter removeObserver:self];
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
@@ -60,7 +74,8 @@
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData];
+    // update for dynamic type
+    [self updateTableViewForDynamicTypesize];
 }
 
 // TABLE VIEW DATA SOURCE AND DELEGATE
@@ -68,12 +83,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[[LNGItemStore sharedStore] allItems] count];
-}
-
-// There will be a problem if this method is not implemented
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,14 +159,7 @@
     if (!self.editing) {
         LNGItem *newItem = [[LNGItemStore sharedStore] createItem];
         
-        /*
-        //NSInteger lastRow = [[[LNGItemStore sharedStore] allItems] indexOfObject:newItem];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        
-        // Insert this new row into the table
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-         */
-        
+        // The init method is key
         LNGDetailViewController *detailViewController = [[LNGDetailViewController alloc] initForNewItem:YES];
         detailViewController.item = newItem;
         detailViewController.dismissBlock = ^{
@@ -166,7 +168,7 @@
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
         navController.modalPresentationStyle = UIModalPresentationFormSheet;        
-        navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         [self presentViewController:navController animated:YES completion:NULL];
     }
 }
@@ -184,6 +186,29 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     [[LNGItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
+// DYNAMIC TYPE
+
+- (void)updateTableViewForDynamicTypesize
+{
+    static NSDictionary *cellHeightDictionary;
+    
+    if (!cellHeightDictionary) {
+        cellHeightDictionary = @{ UIContentSizeCategoryExtraSmall : @44,
+                                  UIContentSizeCategorySmall : @44,
+                                  UIContentSizeCategoryMedium : @44,
+                                  UIContentSizeCategoryLarge : @44,
+                                  UIContentSizeCategoryExtraLarge : @50,
+                                  UIContentSizeCategoryExtraExtraLarge : @55,
+                                  UIContentSizeCategoryExtraExtraExtraLarge : @60 };
+    }
+    
+    NSString *userSize = [[UIApplication sharedApplication] preferredContentSizeCategory];
+    
+    NSNumber *cellHeight = cellHeightDictionary[userSize];
+    [self.tableView setRowHeight:cellHeight.floatValue];
+    [self.tableView reloadData];
 }
 
 @end
