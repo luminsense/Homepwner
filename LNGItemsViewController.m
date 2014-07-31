@@ -114,11 +114,12 @@
             ivc.image = image;
             
             // Present a 600x600 popover from the rect
+            CGSize contentSize = CGSizeMake(600, 600);
+            ivc.scrollViewFrameSize = contentSize;
             self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
             self.imagePopover.delegate = self;
-            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            self.imagePopover.popoverContentSize = contentSize;
             [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-            NSLog(@"Size: %f, %f", self.imagePopover.popoverContentSize.width, self.imagePopover.popoverContentSize.height);
         }
     };
     

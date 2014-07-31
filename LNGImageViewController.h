@@ -11,5 +11,8 @@
 @interface LNGImageViewController : UIViewController
 
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+@property (nonatomic) CGSize scrollViewFrameSize;
 
 @end

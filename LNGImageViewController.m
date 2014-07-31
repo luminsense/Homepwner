@@ -8,7 +8,7 @@
 
 #import "LNGImageViewController.h"
 
-@interface LNGImageViewController ()
+@interface LNGImageViewController () <UIScrollViewDelegate>
 
 @end
 
@@ -29,10 +29,27 @@
 
 - (void)loadView
 {
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    CGRect frame = CGRectMake(0, 0, self.scrollViewFrameSize.width, self.scrollViewFrameSize.height);
     
-    self.view = imageView;
+    self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    self.scrollView.delegate = self;
+    self.scrollView.bouncesZoom = YES;
+    self.scrollView.maximumZoomScale = 2.0;
+    self.scrollView.minimumZoomScale = 0.1;
+    
+    self.imageView = [[UIImageView alloc] init];
+    [self.scrollView addSubview:self.imageView];
+    self.view = self.scrollView;
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    // To-do: fix that issue
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,8 +57,22 @@
     [super viewWillAppear:animated];
     
     // Must cast the view to UIImageView so the compiler knows it is okay to send it setImage;
-    UIImageView *imageView = (UIImageView *)self.view;
-    imageView.image = self.image;
+    // UIImageView *imageView = (UIImageView *)self.view.subviews[1];\\
+    
+    self.imageView.frame = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
+    
+    self.scrollView.contentSize = self.imageView.bounds.size;
+
+    self.imageView.image = self.image;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    float centerPointX = self.scrollView.bounds.size.width > self.imageView.bounds.size.width ? self.scrollView.bounds.size.width / 2 : self.imageView.bounds.size.width / 2 ;
+    float centerPointY = self.scrollView.bounds.size.height > self.imageView.bounds.size.height ? self.scrollView.bounds.size.height / 2 : self.imageView.bounds.size.height / 2 ;
+    self.imageView.center = CGPointMake(centerPointX, centerPointY);
+    
+    float offsetX = self.scrollView.bounds.size.width > self.imageView.bounds.size.width ? 0 : (self.imageView.bounds.size.width - self.scrollView.bounds.size.width) / 2;
+    float offsetY = self.scrollView.bounds.size.height > self.imageView.bounds.size.height ? 0 : (self.imageView.bounds.size.height - self.scrollView.bounds.size.height) / 2;
+    [self.scrollView setContentOffset:CGPointMake(offsetX, offsetY) animated:NO];
 }
 
 - (void)viewDidLoad
