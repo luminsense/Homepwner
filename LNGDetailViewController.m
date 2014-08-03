@@ -33,11 +33,17 @@
 
 @implementation LNGDetailViewController
 
+#pragma mark - View Controller Life Cycle
+
 - (instancetype)initForNewItem:(BOOL)isNew
 {
     self = [super initWithNibName:nil bundle:nil];
     
     if (self) {
+        // Set restoration identifier and restoration class
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
+        
         if (isNew) {
             UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
             self.navigationItem.rightBarButtonItem = doneItem;
@@ -158,7 +164,7 @@
     self.navigationItem.title = _item.itemName;
 }
 
-// FORM EDITING
+#pragma mark - Form Editing
 
 - (IBAction)backgroundTapped:(id)sender
 {
@@ -172,7 +178,7 @@
     return YES;
 }
 
-// TAKING PICTURE
+#pragma mark - Taking Pictures
 
 - (IBAction)takePicture:(id)sender
 {
@@ -240,7 +246,7 @@
     }
 }
 
-// ROTATION HANDLING
+#pragma mark - Rotation Handling
 
 - (void)prepareViewsForOrientation:(UIInterfaceOrientation)orientation
 {
@@ -264,14 +270,14 @@
     [self prepareViewsForOrientation:toInterfaceOrientation];
 }
 
-// POPOVER CONTROLLER
+#pragma mark - Popover Controller
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.imagePickerPopover = nil;
 }
 
-// MODAL VIEW BUTTONS
+#pragma mark - Modal View Buttons
 
 - (void)save:(id)sender
 {
@@ -284,7 +290,7 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
 
-// DYNAMIC TYPE
+#pragma mark - Dynamic Type
 
 - (void)updateFonts
 {
@@ -300,7 +306,7 @@
     self.valueField.font = font;
 }
 
-// SHOW ASSET TYPE
+#pragma mark - Show Asset Type
 
 - (IBAction)showAssetTypePicker:(id)sender {
     [self.view endEditing:YES];
@@ -312,6 +318,43 @@
     [self.navigationController pushViewController:avc animated:YES];
 }
 
+#pragma mark - State Restoration
 
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
+{
+    BOOL isNew = NO;
+    if ([identifierComponents count] == 3) {
+        isNew = YES;
+    }
+    return [[self alloc] initForNewItem:isNew];
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    // Use key-value coding to record the itemKey instead of the whole item for encoding
+    [coder encodeObject:self.item.itemKey forKey:@"item.itemKey"];
+    
+    // Save changes into item
+    self.item.itemName = self.nameField.text;
+    self.item.serialNumber = self.serialNumberField.text;
+    self.item.valueInDollars = [self.valueField.text intValue];
+    
+    // have store save changes to disk
+    [[LNGItemStore sharedStore] saveChanges];
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSString *itemKey = [coder decodeObjectForKey:@"item.itemKey"];
+    for (LNGItem *item in [[LNGItemStore sharedStore] allItems]) {
+        if ([itemKey isEqualToString:item.itemKey]) {
+            self.item = item;
+            break;
+        }
+    }
+    [super decodeRestorableStateWithCoder:coder];
+}
 
 @end

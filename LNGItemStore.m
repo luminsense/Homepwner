@@ -133,11 +133,6 @@
     [self.privateItems removeObjectIdenticalTo:item];
 }
 
-- (void)removeItemAtIndex:(NSUInteger)index
-{
-    [self.privateItems removeObjectAtIndex:index];
-}
-
 - (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
 {
     if (fromIndex == toIndex) {

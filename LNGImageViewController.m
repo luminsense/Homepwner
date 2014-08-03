@@ -24,7 +24,7 @@
 }
 
 // Note:
-// 1. Reason for creating a view controller instead of creating imageView directly in LNGItemsViewController: need to display in a popover
+// 1. Reason for creating a view controller instead of creating imageView directly in LNGItemsViewController: to display in a popover needs a view controller
 // 2. Reason for implementing loadView: need to create self.view instead of creating the view from a NIB file.
 
 - (void)loadView

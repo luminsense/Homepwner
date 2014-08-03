@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LNGImageViewController : UIViewController
+@interface LNGImageViewController : UIViewController 
 
 @property (strong, nonatomic) UIImage *image;
 

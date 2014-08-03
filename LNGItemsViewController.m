@@ -14,19 +14,23 @@
 #import "LNGImageStore.h"
 #import "LNGImageViewController.h"
 
-@interface LNGItemsViewController () <UIPopoverControllerDelegate>
+@interface LNGItemsViewController () <UIPopoverControllerDelegate, UIDataSourceModelAssociation>
 @property (strong, nonatomic) UIPopoverController *imagePopover;
 @end
 
 @implementation LNGItemsViewController
 
-// INIT METHODS
+#pragma mark - View Controller Life Cycle
 
 - (instancetype)init
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         self.navigationItem.title = @"Homepwner";
+        
+        // Set restoration identifier and restoration class
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
         
         // Create a bar button item
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
@@ -63,11 +67,13 @@
     // Register a class with identifier for table view
     // [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
-    // Load the NIB file
+    // Load the NIB file for table view cell
     UINib *nib = [UINib nibWithNibName:@"LNGItemCell" bundle:nil];
     
     // Register this NIB
     [self.tableView registerNib:nib forCellReuseIdentifier:@"LNGItemCell"];
+    
+    self.tableView.restorationIdentifier = @"LNGItemsViewControllerTableView";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,7 +84,7 @@
     [self updateTableViewForDynamicTypesize];
 }
 
-// TABLE VIEW DATA SOURCE AND DELEGATE
+#pragma mark - Table View Data Source and Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -139,7 +145,7 @@
     self.imagePopover = nil;
 }
 
-// NAVIGATION
+#pragma mark - Navigation
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -152,7 +158,7 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-// TABLE VIEW EDITING
+#pragma mark - Table View Editing
 
 - (IBAction)addNewItem:(id)sender
 {
@@ -167,6 +173,9 @@
         };
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+        
+        navController.restorationIdentifier = NSStringFromClass([navController class]);
+        
         navController.modalPresentationStyle = UIModalPresentationFormSheet;        
         navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         [self presentViewController:navController animated:YES completion:NULL];
@@ -177,7 +186,8 @@
 {
     // If the table view is asking to commit a delete command...
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[LNGItemStore sharedStore] removeItemAtIndex:indexPath.row];
+        LNGItem *item = [[[LNGItemStore sharedStore] allItems] objectAtIndex:indexPath.row];
+        [[LNGItemStore sharedStore] removeItem:item];
         // Also remove the row
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -188,7 +198,7 @@
     [[LNGItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
-// DYNAMIC TYPE
+#pragma mark - Dynamic Type
 
 - (void)updateTableViewForDynamicTypesize
 {
@@ -209,6 +219,53 @@
     NSNumber *cellHeight = cellHeightDictionary[userSize];
     [self.tableView setRowHeight:cellHeight.floatValue];
     [self.tableView reloadData];
+}
+
+#pragma mark - State Restoration
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
+{
+    return [[self alloc] init];
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:self.isEditing forKey:@"TableViewIsEditing"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.editing = [coder decodeBoolForKey:@"TableViewIsEditing"];
+    [super decodeRestorableStateWithCoder:coder];
+}
+
+- (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view
+{
+    NSString *identifier = nil;
+    if (idx && view) {
+        // Return an identifier of the given NSIndexPath, in case next time the data source changes
+        LNGItem *item = [[LNGItemStore sharedStore] allItems][idx.row];
+        identifier = item.itemKey;
+    }
+    return identifier;
+}
+
+- (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view
+{
+    NSIndexPath *indexPath = nil;
+    
+    if (identifier && view) {
+        NSArray *items = [[LNGItemStore sharedStore] allItems];
+        for (LNGItem *item in items) {
+            if ([identifier isEqualToString:item.itemKey]) {
+                int row = [items indexOfObjectIdenticalTo:item];
+                indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+            }
+        }
+    }
+    
+    return indexPath;
 }
 
 @end

@@ -19,21 +19,27 @@
             
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+    // If state restoration did not occur, set up the view controller hierarchy
+    if (!self.window.rootViewController) {
+        LNGItemsViewController *itemsViewController = [[LNGItemsViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+        
+        // Give the navigation controller a restoration identifier
+        navController.restorationIdentifier = NSStringFromClass([navController class]);
+        
+        self.window.rootViewController = navController;
+    }
     
-    LNGItemsViewController *itemsViewController = [[LNGItemsViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
-    self.window.rootViewController = navController;
-    
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    return YES;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -45,16 +51,30 @@
     }
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+    return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (UIViewController *)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
+{
+    // Create a new navigation controller
+    UIViewController *vc = [[UINavigationController alloc] init];
+    
+    // The last object in the path is the restoration identifier for this view controller
+    vc.restorationIdentifier = [identifierComponents lastObject];
+    
+    if ([identifierComponents count] == 1) {
+        self.window.rootViewController = vc;
+    } else {
+        vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+    return vc;
 }
 
 @end

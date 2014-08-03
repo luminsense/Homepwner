@@ -10,7 +10,7 @@
 
 @class LNGItem;
 
-@interface LNGDetailViewController : UIViewController
+@interface LNGDetailViewController : UIViewController <UIViewControllerRestoration>
 
 @property (nonatomic, strong) LNGItem *item;
 @property (nonatomic, copy) void (^dismissBlock)(void);

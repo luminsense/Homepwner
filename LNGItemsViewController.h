@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LNGItemsViewController : UITableViewController
+@interface LNGItemsViewController : UITableViewController <UIViewControllerRestoration>
 
 @end
