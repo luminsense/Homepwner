@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="assetTypeButton" destination="Vqt-WA-axI" id="tEp-6Y-1Vy"/>
                 <outlet property="cameraButton" destination="tr2-YE-xZC" id="Alr-X3-qav"/>
-                <outlet property="dateLabel" destination="dNF-kV-r6S" id="eVe-5h-sz1"/>
+                <outlet property="dateLabel" destination="3Np-eO-TQe" id="oDF-vJ-yod"/>
                 <outlet property="nameField" destination="7yp-g2-Wgu" id="ixr-w3-jlZ"/>
                 <outlet property="nameLabel" destination="upL-EC-qZP" id="aaa-il-fZU"/>
                 <outlet property="serialNumberField" destination="CQf-t3-90s" id="8IT-7f-TQo"/>
@@ -31,19 +31,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJy-lk-Ln1">
-                    <rect key="frame" x="20" y="127.5" width="46" height="21"/>
+                    <rect key="frame" x="20" y="128" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r41-Mv-lbq">
-                    <rect key="frame" x="20" y="168.5" width="46" height="21"/>
+                    <rect key="frame" x="20" y="169" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yp-g2-Wgu">
-                    <rect key="frame" x="86" y="83.5" width="214" height="30"/>
+                    <rect key="frame" x="86" y="84" width="214" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     <connections>
@@ -51,7 +51,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-t3-90s">
-                    <rect key="frame" x="86" y="125" width="214" height="30"/>
+                    <rect key="frame" x="86" y="126" width="214" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     <connections>
@@ -59,7 +59,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-e3-wtx">
-                    <rect key="frame" x="86" y="165.5" width="214" height="30"/>
+                    <rect key="frame" x="86" y="166" width="214" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     <connections>
@@ -97,6 +97,15 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Np-eO-TQe">
+                    <rect key="frame" x="20" y="210" width="280" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Tjh-B6-rKa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -106,6 +115,7 @@
                 <constraint firstItem="upL-EC-qZP" firstAttribute="leading" secondItem="AJy-lk-Ln1" secondAttribute="leading" id="806-Wu-PhK"/>
                 <constraint firstItem="7yp-g2-Wgu" firstAttribute="trailing" secondItem="CQf-t3-90s" secondAttribute="trailing" id="8Ap-h3-PVo"/>
                 <constraint firstItem="upL-EC-qZP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="87" id="A2q-gP-0Wh"/>
+                <constraint firstItem="upL-EC-qZP" firstAttribute="leading" secondItem="3Np-eO-TQe" secondAttribute="leading" id="AQm-Wz-3G7"/>
                 <constraint firstAttribute="trailing" secondItem="Vmp-6w-VWt" secondAttribute="trailing" id="C6K-PZ-YE0"/>
                 <constraint firstItem="Vmp-6w-VWt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FIA-GD-YCT"/>
                 <constraint firstItem="upL-EC-qZP" firstAttribute="baseline" secondItem="7yp-g2-Wgu" secondAttribute="baseline" id="FZX-Ij-IMf"/>
@@ -113,8 +123,10 @@
                 <constraint firstItem="r41-Mv-lbq" firstAttribute="leading" secondItem="AJy-lk-Ln1" secondAttribute="leading" id="Jgt-nN-8Wg"/>
                 <constraint firstAttribute="bottom" secondItem="Vmp-6w-VWt" secondAttribute="bottom" id="KCD-Q8-7xM"/>
                 <constraint firstAttribute="trailing" secondItem="7yp-g2-Wgu" secondAttribute="trailing" constant="20" id="LEm-qg-7Es"/>
+                <constraint firstItem="7yp-g2-Wgu" firstAttribute="trailing" secondItem="3Np-eO-TQe" secondAttribute="trailing" id="OXT-df-4ng"/>
                 <constraint firstItem="yd4-e3-wtx" firstAttribute="leading" secondItem="r41-Mv-lbq" secondAttribute="trailing" constant="20" id="R9l-F6-09S"/>
                 <constraint firstItem="AJy-lk-Ln1" firstAttribute="top" secondItem="upL-EC-qZP" secondAttribute="bottom" constant="20" id="Sl9-CR-QtC"/>
+                <constraint firstItem="3Np-eO-TQe" firstAttribute="top" secondItem="yd4-e3-wtx" secondAttribute="bottom" constant="14" id="TNr-5k-9n7"/>
                 <constraint firstItem="r41-Mv-lbq" firstAttribute="top" secondItem="AJy-lk-Ln1" secondAttribute="bottom" constant="20" id="VY7-ET-RCW"/>
                 <constraint firstItem="7yp-g2-Wgu" firstAttribute="leading" secondItem="upL-EC-qZP" secondAttribute="trailing" constant="20" id="VYn-hE-apl"/>
                 <constraint firstItem="r41-Mv-lbq" firstAttribute="width" secondItem="upL-EC-qZP" secondAttribute="width" id="d3f-QF-nCb"/>
@@ -127,7 +139,7 @@
             <connections>
                 <action selector="backgroundTapped:" destination="-1" eventType="touchUpInside" id="Dnh-hY-wEU"/>
             </connections>
-            <point key="canvasLocation" x="130" y="147"/>
+            <point key="canvasLocation" x="48" y="147"/>
         </view>
     </objects>
 </document>

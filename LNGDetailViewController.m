@@ -91,14 +91,14 @@
     [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
     
     NSDictionary *nameMap = @{@"imageView" : self.imageView,
-                              @"valueField" : self.valueField,
+                              @"dateLabel" : self.dateLabel,
                               @"toolBar" : self.toolBar};
     
     NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[imageView]|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:nameMap];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[valueField]-[imageView]-[toolBar]"
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[dateLabel]-[imageView]-[toolBar]"
                                                                            options:0
                                                                            metrics:nil
                                                                              views:nameMap];
