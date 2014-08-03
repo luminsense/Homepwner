@@ -16,6 +16,7 @@
 		205FC96E198E8B54009309C4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 205FC96D198E8B54009309C4 /* Localizable.strings */; };
 		20771919196D736C006E3BAA /* LNGCameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20771918196D736C006E3BAA /* LNGCameraOverlayView.m */; };
 		209DDCCF1989609700A1B69C /* LNGImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 209DDCCE1989609700A1B69C /* LNGImageViewController.m */; };
+		20C73EB6198E972F00B596D8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20C73EB5198E972F00B596D8 /* Settings.bundle */; };
 		20C907C51969359400099EC5 /* LNGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C907C31969359400099EC5 /* LNGDetailViewController.m */; };
 		20D2D33D198E849E003A7C71 /* LNGDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D2D33F198E849E003A7C71 /* LNGDetailViewController.xib */; };
 		20E84298196C4CFD00CAC317 /* LNGImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E84297196C4CFD00CAC317 /* LNGImageStore.m */; };
@@ -54,6 +55,7 @@
 		20771918196D736C006E3BAA /* LNGCameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGCameraOverlayView.m; sourceTree = "<group>"; };
 		209DDCCD1989609700A1B69C /* LNGImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGImageViewController.h; sourceTree = "<group>"; };
 		209DDCCE1989609700A1B69C /* LNGImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGImageViewController.m; sourceTree = "<group>"; };
+		20C73EB5198E972F00B596D8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		20C907C21969359400099EC5 /* LNGDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGDetailViewController.h; sourceTree = "<group>"; };
 		20C907C31969359400099EC5 /* LNGDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGDetailViewController.m; sourceTree = "<group>"; };
 		20D2D341198E8524003A7C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LNGDetailViewController.xib; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				201D92531987E0A800AA29B2 /* View */,
 				20FEF5451966FE5800C9AA48 /* Controller */,
 				20FEF51D1966FA0D00C9AA48 /* Homepwner */,
+				20C73EB5198E972F00B596D8 /* Settings.bundle */,
 				20FEF52E1966FA0D00C9AA48 /* HomepwnerTests */,
 				20FEF51C1966FA0D00C9AA48 /* Products */,
 			);
@@ -285,6 +288,7 @@
 			files = (
 				201D92551987E0DE00AA29B2 /* LNGItemCell.xib in Resources */,
 				205FC96E198E8B54009309C4 /* Localizable.strings in Resources */,
+				20C73EB6198E972F00B596D8 /* Settings.bundle in Resources */,
 				20FEF5261966FA0D00C9AA48 /* Images.xcassets in Resources */,
 				20D2D33D198E849E003A7C71 /* LNGDetailViewController.xib in Resources */,
 			);

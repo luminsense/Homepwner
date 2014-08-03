@@ -10,12 +10,23 @@
 #import "LNGItemsViewController.h"
 #import "LNGItemStore.h"
 
+NSString * const LNGNextItemValuePrefsKey = @"NextItemValue";
+NSString * const LNGNextItemNamePrefsKey = @"NextItemName";
+
 @interface AppDelegate ()
             
 
 @end
 
 @implementation AppDelegate
+
++ (void)initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *factorySettings = @{LNGNextItemValuePrefsKey : @75,
+                                      LNGNextItemNamePrefsKey : @"Coffee Cup"};
+    [defaults registerDefaults:factorySettings];
+}
             
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

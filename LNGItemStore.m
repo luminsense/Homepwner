@@ -9,6 +9,7 @@
 #import "LNGItemStore.h"
 #import "LNGImageStore.h"
 #import "LNGItem.h"
+#import "AppDelegate.h"
 
 @import CoreData;
 
@@ -117,6 +118,13 @@
     // Create item
     LNGItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"LNGItem" inManagedObjectContext:self.context];
     item.orderingValue = order;
+    
+    // Read user preference
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    item.valueInDollars = [defaults integerForKey:LNGNextItemValuePrefsKey];
+    item.itemName = [defaults objectForKey:LNGNextItemNamePrefsKey];
+    
+    NSLog(@"defaults = %@", [defaults dictionaryRepresentation]);
     
     [self.privateItems addObject:item];
     return item;

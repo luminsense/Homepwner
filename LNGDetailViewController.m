@@ -12,6 +12,7 @@
 #import "LNGImageStore.h"
 #import "LNGCameraOverlayView.h"
 #import "LNGAssetTypeTableViewController.h"
+#import "AppDelegate.h"
 
 @interface LNGDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
@@ -155,7 +156,15 @@
     LNGItem *item = self.item;
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialNumberField.text;
-    item.valueInDollars = [self.valueField.text intValue];
+    
+    int newValue = [self.valueField.text intValue];
+    
+    // Change user default
+    if (newValue != item.valueInDollars) {
+        item.valueInDollars = newValue;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:newValue forKey:LNGNextItemValuePrefsKey];
+    }
 }
 
 - (void)setItem:(LNGItem *)item
