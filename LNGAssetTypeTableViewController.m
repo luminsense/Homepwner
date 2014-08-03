@@ -18,7 +18,11 @@
 
 - (instancetype)init
 {
-    return [self initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        self.navigationItem.title = NSLocalizedString(@"Asset Type", @"LNGAssetTypeViewController title");
+    }
+    return self;
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style

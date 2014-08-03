@@ -13,36 +13,36 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWH-34-JwG">
-                        <rect key="frame" x="250" y="12" width="50" height="20.5"/>
+                        <rect key="frame" x="220" y="12.5" width="80" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1q8-ZN-P8k"/>
-                            <constraint firstAttribute="width" constant="50" id="Dav-qs-zdk"/>
+                            <constraint firstAttribute="width" constant="80" id="Dav-qs-zdk"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bl0-E8-Uje">
-                        <rect key="frame" x="2" y="2.5" width="40" height="40"/>
+                        <rect key="frame" x="2" y="3" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="FUB-Mo-GU3"/>
                             <constraint firstAttribute="width" constant="40" placeholder="YES" id="rdH-rx-bMf"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcE-tm-pw9">
-                        <rect key="frame" x="50" y="4" width="192" height="20.5"/>
+                        <rect key="frame" x="50" y="3.5" width="162" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1G-6l-ulf">
-                        <rect key="frame" x="50" y="24.5" width="192" height="17"/>
+                        <rect key="frame" x="50" y="24.5" width="162" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-ke-J1i">
-                        <rect key="frame" x="2" y="2.5" width="40" height="40"/>
+                        <rect key="frame" x="2" y="3" width="40" height="40"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>

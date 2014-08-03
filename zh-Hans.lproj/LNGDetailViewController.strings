@@ -1,0 +1,15 @@
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "3Np-eO-TQe"; */
+"3Np-eO-TQe.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Serial"; ObjectID = "AJy-lk-Ln1"; */
+"AJy-lk-Ln1.text" = "序列号";
+
+/* Class = "IBUIBarButtonItem"; title = "Item"; ObjectID = "Vqt-WA-axI"; */
+"Vqt-WA-axI.title" = "Item";
+
+/* Class = "IBUILabel"; text = "Value"; ObjectID = "r41-Mv-lbq"; */
+"r41-Mv-lbq.text" = "价格";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "upL-EC-qZP"; */
+"upL-EC-qZP.text" = "名称";

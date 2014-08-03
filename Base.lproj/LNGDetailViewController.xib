@@ -66,12 +66,6 @@
                         <outlet property="delegate" destination="-1" id="XAf-ih-fFY"/>
                     </connections>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNF-kV-r6S">
-                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vmp-6w-VWt">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <constraints>
@@ -139,7 +133,6 @@
             <connections>
                 <action selector="backgroundTapped:" destination="-1" eventType="touchUpInside" id="Dnh-hY-wEU"/>
             </connections>
-            <point key="canvasLocation" x="48" y="147"/>
         </view>
     </objects>
 </document>

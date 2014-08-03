@@ -13,10 +13,11 @@
 		204907F1198B95DB009F6CCE /* LNGImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 204907F0198B95DB009F6CCE /* LNGImageTransformer.m */; };
 		204907F4198BA26A009F6CCE /* LNGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 204907F3198BA26A009F6CCE /* LNGItem.m */; };
 		204907F7198E2471009F6CCE /* LNGAssetTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 204907F6198E2471009F6CCE /* LNGAssetTypeTableViewController.m */; };
+		205FC96E198E8B54009309C4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 205FC96D198E8B54009309C4 /* Localizable.strings */; };
 		20771919196D736C006E3BAA /* LNGCameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20771918196D736C006E3BAA /* LNGCameraOverlayView.m */; };
 		209DDCCF1989609700A1B69C /* LNGImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 209DDCCE1989609700A1B69C /* LNGImageViewController.m */; };
 		20C907C51969359400099EC5 /* LNGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C907C31969359400099EC5 /* LNGDetailViewController.m */; };
-		20C907C61969359400099EC5 /* LNGDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20C907C41969359400099EC5 /* LNGDetailViewController.xib */; };
+		20D2D33D198E849E003A7C71 /* LNGDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D2D33F198E849E003A7C71 /* LNGDetailViewController.xib */; };
 		20E84298196C4CFD00CAC317 /* LNGImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E84297196C4CFD00CAC317 /* LNGImageStore.m */; };
 		20FEF5211966FA0D00C9AA48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEF5201966FA0D00C9AA48 /* main.m */; };
 		20FEF5241966FA0D00C9AA48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEF5231966FA0D00C9AA48 /* AppDelegate.m */; };
@@ -47,13 +48,15 @@
 		204907F3198BA26A009F6CCE /* LNGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItem.m; sourceTree = "<group>"; };
 		204907F5198E2471009F6CCE /* LNGAssetTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGAssetTypeTableViewController.h; sourceTree = "<group>"; };
 		204907F6198E2471009F6CCE /* LNGAssetTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGAssetTypeTableViewController.m; sourceTree = "<group>"; };
+		204AFD3D198E87E300369636 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LNGDetailViewController.strings"; sourceTree = "<group>"; };
+		205FC96D198E8B54009309C4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		20771917196D736C006E3BAA /* LNGCameraOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGCameraOverlayView.h; sourceTree = "<group>"; };
 		20771918196D736C006E3BAA /* LNGCameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGCameraOverlayView.m; sourceTree = "<group>"; };
 		209DDCCD1989609700A1B69C /* LNGImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGImageViewController.h; sourceTree = "<group>"; };
 		209DDCCE1989609700A1B69C /* LNGImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGImageViewController.m; sourceTree = "<group>"; };
 		20C907C21969359400099EC5 /* LNGDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGDetailViewController.h; sourceTree = "<group>"; };
 		20C907C31969359400099EC5 /* LNGDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGDetailViewController.m; sourceTree = "<group>"; };
-		20C907C41969359400099EC5 /* LNGDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LNGDetailViewController.xib; sourceTree = "<group>"; };
+		20D2D341198E8524003A7C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LNGDetailViewController.xib; sourceTree = "<group>"; };
 		20E84296196C4CFD00CAC317 /* LNGImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGImageStore.h; sourceTree = "<group>"; };
 		20E84297196C4CFD00CAC317 /* LNGImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGImageStore.m; sourceTree = "<group>"; };
 		20FEF51B1966FA0D00C9AA48 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +138,7 @@
 		20FEF51D1966FA0D00C9AA48 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				205FC96D198E8B54009309C4 /* Localizable.strings */,
 				20FEF5221966FA0D00C9AA48 /* AppDelegate.h */,
 				20FEF5231966FA0D00C9AA48 /* AppDelegate.m */,
 				20FEF5251966FA0D00C9AA48 /* Images.xcassets */,
@@ -190,7 +194,7 @@
 				209DDCCE1989609700A1B69C /* LNGImageViewController.m */,
 				20C907C21969359400099EC5 /* LNGDetailViewController.h */,
 				20C907C31969359400099EC5 /* LNGDetailViewController.m */,
-				20C907C41969359400099EC5 /* LNGDetailViewController.xib */,
+				20D2D33F198E849E003A7C71 /* LNGDetailViewController.xib */,
 				204907F5198E2471009F6CCE /* LNGAssetTypeTableViewController.h */,
 				204907F6198E2471009F6CCE /* LNGAssetTypeTableViewController.m */,
 				20771917196D736C006E3BAA /* LNGCameraOverlayView.h */,
@@ -261,6 +265,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 20FEF5121966FA0D00C9AA48;
 			productRefGroup = 20FEF51C1966FA0D00C9AA48 /* Products */;
@@ -279,8 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				201D92551987E0DE00AA29B2 /* LNGItemCell.xib in Resources */,
+				205FC96E198E8B54009309C4 /* Localizable.strings in Resources */,
 				20FEF5261966FA0D00C9AA48 /* Images.xcassets in Resources */,
-				20C907C61969359400099EC5 /* LNGDetailViewController.xib in Resources */,
+				20D2D33D198E849E003A7C71 /* LNGDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +338,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		20D2D33F198E849E003A7C71 /* LNGDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20D2D341198E8524003A7C71 /* Base */,
+				204AFD3D198E87E300369636 /* zh-Hans */,
+			);
+			name = LNGDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		20FEF5331966FA0D00C9AA48 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -367,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -402,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
