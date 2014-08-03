@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LNGDetailViewController">
             <connections>
+                <outlet property="assetTypeButton" destination="Vqt-WA-axI" id="tEp-6Y-1Vy"/>
                 <outlet property="cameraButton" destination="tr2-YE-xZC" id="Alr-X3-qav"/>
                 <outlet property="dateLabel" destination="dNF-kV-r6S" id="eVe-5h-sz1"/>
                 <outlet property="nameField" destination="7yp-g2-Wgu" id="ixr-w3-jlZ"/>
@@ -80,6 +81,12 @@
                         <barButtonItem systemItem="camera" id="tr2-YE-xZC">
                             <connections>
                                 <action selector="takePicture:" destination="-1" id="P2X-ax-h3D"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="NZO-fO-ydY"/>
+                        <barButtonItem title="Item" id="Vqt-WA-axI">
+                            <connections>
+                                <action selector="showAssetTypePicker:" destination="-1" id="eR1-l8-u6V"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="kwe-3c-VIx"/>

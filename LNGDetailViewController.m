@@ -11,6 +11,7 @@
 #import "LNGItemStore.h"
 #import "LNGImageStore.h"
 #import "LNGCameraOverlayView.h"
+#import "LNGAssetTypeTableViewController.h"
 
 @interface LNGDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
@@ -25,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 @end
 
@@ -123,6 +126,13 @@
     NSString *itemKey = self.item.itemKey;
     UIImage *imageToDisplay = [[LNGImageStore sharedStore] imageForKey:itemKey];
     self.imageView.image = imageToDisplay;
+    
+    // Update the title of asset type
+    NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+    }
+    self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@", typeLabel];
     
     // Using dynamic type
     [self updateFonts];
@@ -289,6 +299,19 @@
     self.serialNumberField.font = font;
     self.valueField.font = font;
 }
+
+// SHOW ASSET TYPE
+
+- (IBAction)showAssetTypePicker:(id)sender {
+    [self.view endEditing:YES];
+    
+    LNGAssetTypeTableViewController *avc = [[LNGAssetTypeTableViewController alloc] init];
+    avc.item = self.item;
+    avc.navigationItem.title = @"AssetType";
+    
+    [self.navigationController pushViewController:avc animated:YES];
+}
+
 
 
 @end

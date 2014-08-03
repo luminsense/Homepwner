@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		201D92501987E06800AA29B2 /* LNGItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201D924F1987E06800AA29B2 /* LNGItemCell.m */; };
 		201D92551987E0DE00AA29B2 /* LNGItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201D92541987E0DE00AA29B2 /* LNGItemCell.xib */; };
+		204907EE198B9234009F6CCE /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 204907EC198B9234009F6CCE /* Homepwner.xcdatamodeld */; };
+		204907F1198B95DB009F6CCE /* LNGImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 204907F0198B95DB009F6CCE /* LNGImageTransformer.m */; };
+		204907F4198BA26A009F6CCE /* LNGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 204907F3198BA26A009F6CCE /* LNGItem.m */; };
+		204907F7198E2471009F6CCE /* LNGAssetTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 204907F6198E2471009F6CCE /* LNGAssetTypeTableViewController.m */; };
 		20771919196D736C006E3BAA /* LNGCameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20771918196D736C006E3BAA /* LNGCameraOverlayView.m */; };
 		209DDCCF1989609700A1B69C /* LNGImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 209DDCCE1989609700A1B69C /* LNGImageViewController.m */; };
 		20C907C51969359400099EC5 /* LNGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C907C31969359400099EC5 /* LNGDetailViewController.m */; };
@@ -19,7 +23,6 @@
 		20FEF5261966FA0D00C9AA48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20FEF5251966FA0D00C9AA48 /* Images.xcassets */; };
 		20FEF5321966FA0D00C9AA48 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEF5311966FA0D00C9AA48 /* HomepwnerTests.m */; };
 		20FEF53D1966FB4300C9AA48 /* LNGItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEF53C1966FB4300C9AA48 /* LNGItemsViewController.m */; };
-		20FEF5401966FCDA00C9AA48 /* LNGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEF53F1966FCDA00C9AA48 /* LNGItem.m */; };
 		20FEF5431966FE3C00C9AA48 /* LNGItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEF5421966FE3C00C9AA48 /* LNGItemStore.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,13 @@
 		201D924E1987E06800AA29B2 /* LNGItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGItemCell.h; sourceTree = "<group>"; };
 		201D924F1987E06800AA29B2 /* LNGItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItemCell.m; sourceTree = "<group>"; };
 		201D92541987E0DE00AA29B2 /* LNGItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LNGItemCell.xib; sourceTree = "<group>"; };
+		204907ED198B9234009F6CCE /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		204907EF198B95DB009F6CCE /* LNGImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGImageTransformer.h; sourceTree = "<group>"; };
+		204907F0198B95DB009F6CCE /* LNGImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGImageTransformer.m; sourceTree = "<group>"; };
+		204907F2198BA26A009F6CCE /* LNGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGItem.h; sourceTree = "<group>"; };
+		204907F3198BA26A009F6CCE /* LNGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItem.m; sourceTree = "<group>"; };
+		204907F5198E2471009F6CCE /* LNGAssetTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGAssetTypeTableViewController.h; sourceTree = "<group>"; };
+		204907F6198E2471009F6CCE /* LNGAssetTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGAssetTypeTableViewController.m; sourceTree = "<group>"; };
 		20771917196D736C006E3BAA /* LNGCameraOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGCameraOverlayView.h; sourceTree = "<group>"; };
 		20771918196D736C006E3BAA /* LNGCameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGCameraOverlayView.m; sourceTree = "<group>"; };
 		209DDCCD1989609700A1B69C /* LNGImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGImageViewController.h; sourceTree = "<group>"; };
@@ -57,8 +67,6 @@
 		20FEF5311966FA0D00C9AA48 /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
 		20FEF53B1966FB4300C9AA48 /* LNGItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGItemsViewController.h; sourceTree = "<group>"; };
 		20FEF53C1966FB4300C9AA48 /* LNGItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItemsViewController.m; sourceTree = "<group>"; };
-		20FEF53E1966FCDA00C9AA48 /* LNGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGItem.h; sourceTree = "<group>"; };
-		20FEF53F1966FCDA00C9AA48 /* LNGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItem.m; sourceTree = "<group>"; };
 		20FEF5411966FE3C00C9AA48 /* LNGItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNGItemStore.h; sourceTree = "<group>"; };
 		20FEF5421966FE3C00C9AA48 /* LNGItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNGItemStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,8 +172,11 @@
 		20FEF5441966FE4800C9AA48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				20FEF53E1966FCDA00C9AA48 /* LNGItem.h */,
-				20FEF53F1966FCDA00C9AA48 /* LNGItem.m */,
+				204907F2198BA26A009F6CCE /* LNGItem.h */,
+				204907F3198BA26A009F6CCE /* LNGItem.m */,
+				204907EF198B95DB009F6CCE /* LNGImageTransformer.h */,
+				204907F0198B95DB009F6CCE /* LNGImageTransformer.m */,
+				204907EC198B9234009F6CCE /* Homepwner.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,6 +191,8 @@
 				20C907C21969359400099EC5 /* LNGDetailViewController.h */,
 				20C907C31969359400099EC5 /* LNGDetailViewController.m */,
 				20C907C41969359400099EC5 /* LNGDetailViewController.xib */,
+				204907F5198E2471009F6CCE /* LNGAssetTypeTableViewController.h */,
+				204907F6198E2471009F6CCE /* LNGAssetTypeTableViewController.m */,
 				20771917196D736C006E3BAA /* LNGCameraOverlayView.h */,
 				20771918196D736C006E3BAA /* LNGCameraOverlayView.m */,
 			);
@@ -289,12 +302,15 @@
 				201D92501987E06800AA29B2 /* LNGItemCell.m in Sources */,
 				20771919196D736C006E3BAA /* LNGCameraOverlayView.m in Sources */,
 				20E84298196C4CFD00CAC317 /* LNGImageStore.m in Sources */,
+				204907F4198BA26A009F6CCE /* LNGItem.m in Sources */,
 				20FEF5241966FA0D00C9AA48 /* AppDelegate.m in Sources */,
+				204907EE198B9234009F6CCE /* Homepwner.xcdatamodeld in Sources */,
 				20C907C51969359400099EC5 /* LNGDetailViewController.m in Sources */,
-				20FEF5401966FCDA00C9AA48 /* LNGItem.m in Sources */,
+				204907F1198B95DB009F6CCE /* LNGImageTransformer.m in Sources */,
 				20FEF5211966FA0D00C9AA48 /* main.m in Sources */,
 				20FEF5431966FE3C00C9AA48 /* LNGItemStore.m in Sources */,
 				20FEF53D1966FB4300C9AA48 /* LNGItemsViewController.m in Sources */,
+				204907F7198E2471009F6CCE /* LNGAssetTypeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +502,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		204907EC198B9234009F6CCE /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				204907ED198B9234009F6CCE /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 204907ED198B9234009F6CCE /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 20FEF5131966FA0D00C9AA48 /* Project object */;
 }

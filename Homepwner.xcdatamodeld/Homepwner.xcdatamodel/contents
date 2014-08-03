@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.12" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="LNGAssetType" syncable="YES">
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LNGItem" inverseName="assetType" inverseEntity="LNGItem" syncable="YES"/>
+    </entity>
+    <entity name="LNGItem" representedClassName="LNGItem" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="itemKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderingValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="serialNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Transformable" valueTransformerName="LNGImageTransformer" syncable="YES"/>
+        <attribute name="valueInDollars" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="assetType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LNGAssetType" inverseName="items" inverseEntity="LNGAssetType" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LNGItem" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="LNGAssetType" positionX="-54" positionY="45" width="128" height="73"/>
+    </elements>
+</model>

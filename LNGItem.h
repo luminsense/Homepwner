@@ -1,42 +1,26 @@
 //
 //  LNGItem.h
-//  RandomItems
+//  Homepwner
 //
-//  Created by John Gallagher on 1/12/14.
-//  Copyright (c) 2014 Big Nerd Ranch. All rights reserved.
+//  Created by Lumi on 14-8-1.
+//  Copyright (c) 2014年 LumiNg. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@interface LNGItem : NSObject <NSCoding>
 
-@property (nonatomic, copy) NSString *itemName;
-@property (nonatomic, copy) NSString *serialNumber;
+@interface LNGItem : NSManagedObject
+
+@property (nonatomic, retain) NSString * itemName;
+@property (nonatomic, retain) NSString * serialNumber;
 @property (nonatomic) int valueInDollars;
-@property (nonatomic, copy) NSDate *dateCreated;
-@property (nonatomic, copy) NSString *itemKey;
-@property (nonatomic, strong) UIImage *thumbnail;
-
-+ (instancetype)randomItem;
-
-// Designated initializer for LNGItem
-- (instancetype)initWithItemName:(NSString *)name
-                  valueInDollars:(int)value
-                    serialNumber:(NSString *)sNumber;
-
-- (instancetype)initWithItemName:(NSString *)name;
-
-- (void)setItemName:(NSString *)str;
-- (NSString *)itemName;
-
-- (void)setSerialNumber:(NSString *)str;
-- (NSString *)serialNumber;
-
-- (void)setValueInDollars:(int)v;
-- (int)valueInDollars;
-
-- (NSDate *)dateCreated;
+@property (nonatomic, retain) NSDate * dateCreated;
+@property (nonatomic, retain) NSString * itemKey;
+@property (nonatomic, retain) UIImage *thumbnail;
+@property (nonatomic) double orderingValue;
+@property (nonatomic, retain) NSManagedObject *assetType;
 
 - (void)setThumbnailFromImage:(UIImage *)image;
 

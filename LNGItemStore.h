@@ -16,10 +16,12 @@
 
 // Singleton
 + (instancetype)sharedStore;
+
 - (LNGItem *)createItem;
 - (void)removeItem:(LNGItem *)item;
 - (void)removeItemAtIndex:(NSUInteger)index;
 - (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 - (BOOL)saveChanges;
+- (NSArray *)allAssetTypes;
 
 @end
